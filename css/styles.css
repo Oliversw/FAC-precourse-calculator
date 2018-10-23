@@ -21,7 +21,7 @@ body {
 .calculator-display {
   height: 1.5em;
   width: 100%;
-  font-size: 2em;
+  font-size: 3.6em;
   text-align: right;
   background-color: rgb(48, 59, 46);
   border-top-left-radius: 8px;
@@ -29,9 +29,9 @@ body {
 }
 
 button {
-  font-size: 1em;
-  height: 4em;
-  width: 6em;
+  font-size: 1.5em;
+  height: 2em;
+  width: 2.4em;
   border: 0.5px solid black;
   color: white;
 }
