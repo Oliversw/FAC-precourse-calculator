@@ -17,8 +17,15 @@ body {
   grid-template-columns: auto auto auto auto;
 }
 
-button {
-  height: 8em;
-  width: 10em;
+.calculator-display {
+  height: 4em;
+  width: 100%;
+  font-size: 1em;
+  text-align: right;
+}
 
+button {
+  font-size: 1em;
+  height: 4em;
+  width: 6em;
 }
