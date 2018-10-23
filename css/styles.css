@@ -1,0 +1,21 @@
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.calculator-body {
+  width: 30%;
+  height: 60%;
+  margin: 0 auto;
+  margin-top: 10%;
+}
+
+.calculator-btns {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+button {
+  height: 5em;
+  width: 100%;
+}
