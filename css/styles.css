@@ -15,7 +15,9 @@ body {
 
 .calculator-btns {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  border-radius: 8px;
+  background-color: rgb( 99	107	98);
 }
 
 .calculator-display {
@@ -32,7 +34,7 @@ button {
   font-size: 1.5em;
   height: 2em;
   width: 2.4em;
-  border: 0.5px solid black;
+  border: none;
   color: white;
 }
 
@@ -50,6 +52,8 @@ button {
 
 .zero {
   border-bottom-left-radius: 8px;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 
 .equals {
