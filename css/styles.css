@@ -53,6 +53,7 @@ button {
 .zero {
   border-bottom-left-radius: 8px;
   grid-column: 1 / 3;
+  width: 100%;
 }
 
 .equals {
