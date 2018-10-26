@@ -1,3 +1,7 @@
+//TODO: find alternative to using global variables
+let totalCalc = [];
+let lastNum = "";
+
 //listens for button clicks
 document.querySelector('.calculator-btns').addEventListener('click', function(event) {
   const display = document.querySelector('.calculator-display');
@@ -17,7 +21,7 @@ document.querySelector('.calculator-btns').addEventListener('click', function(ev
 
   //checks whether clicked button is an operator (+ - * / =)
   if (buttonClasses.contains('operator')) {
-    console.log("operator");
+    lastNum = display.innerText;
     if (buttonClasses.contains('plus')) {
       console.log("plus");
     }
@@ -35,17 +39,41 @@ document.querySelector('.calculator-btns').addEventListener('click', function(ev
     }
   }
 
-  //checks whether clicked button is cancel
+  //checks whether clicked button is a cancel button
   if (buttonClasses.contains('dark')) {
-    console.log("dark");
-    if (buttonClasses.contains('cancel')) {
-      console.log("AC");
+    if (buttonClasses.contains('clear-all')) {
+      clearAll();
     }
-    if (buttonClasses.contains('plusneg')) {
-      console.log("plusneg");
+    if (buttonClasses.contains('clear')) {
+      clear();
     }
-    if (buttonClasses.contains('pcnt')) {
-      console.log("pcnt");
+    if (buttonClasses.contains('del')) {
+      del();
     }
   }
 });
+
+//clears everything
+const clearAll = function() {
+  document.querySelector('.calculator-display').innerText = "0";
+  let totalCalc = [];
+  let lastNum = "";
+}
+
+//clears the current display
+const clear = function() {
+  document.querySelector('.calculator-display').innerText = "0";
+}
+
+//deletes a single number
+const del = function() {
+  let display = document.querySelector('.calculator-display').innerText;
+  //only runs when display doesn't start with 0
+  if (display !== "0") {
+    document.querySelector('.calculator-display').innerText = display.substring(0, display.length-1);
+    if (display.length < 2) {
+      //returns the display to '0' when empty
+      document.querySelector('.calculator-display').innerText = "0";
+    }
+  }
+}
