@@ -40,7 +40,7 @@ document.querySelector('.calculator-btns').addEventListener('click', function(ev
   }
 
   //checks whether clicked button is a cancel button
-  if (buttonClasses.contains('dark')) {
+  if (buttonClasses.contains('clear-buttons')) {
     if (buttonClasses.contains('clear-all')) {
       clearAll();
     }
