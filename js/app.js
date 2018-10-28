@@ -14,7 +14,8 @@ document.querySelector('.calculator-btns').addEventListener('click', function(ev
 
   //checks whether clicked button is an operator (+ - * / =)
   if (buttonClasses.contains('operator')) {
-    operatorPress();
+    let thisButton = event.target.innerText;
+    operatorPress(thisButton);
   }
     if (buttonClasses.contains('equals')) {
       console.log("equals");
@@ -46,32 +47,44 @@ const numberPress = function() {
   }
 }
 
-const operatorPress = function() {
-  calcArr.push(parseFloat(document.querySelector('.calculator-display').innerText));
+const operatorPress = function(thisButton) {
   if (calcArr.length === 3) {
     switch (true) {
       case calcArr[1] === "+":
-        console.log("switch add, baby");
+        total = addCalc();
         break;
       case calcArr[1] === "-":
-        console.log("switch min, baby");
+        total = minCalc();
         break;
       case calcArr[1] === "*":
-        console.log("switch *, baby");
+        total = multCalc();
         break;
       case calcArr[1] === "/":
-        console.log("switch %, baby");
+        total = divCalc();
         break;
     }
+    calcArr = [total];
+    document.querySelector('.calculator-display').innerText = total.toString();
   }
+  calcArr.push(parseFloat(document.querySelector('.calculator-display').innerText));
+  calcArr.push(thisButton);
+  console.log(calcArr);
 }
 
-const plusOrMinusPress = function() {
-
+const addCalc = function() {
+  return calcArr[0] + calcArr[2];
 }
 
-const multOrDivPress = function() {
+const minCalc = function() {
+  return calcArr[0] - calcArr[2];
+}
 
+const multCalc = function() {
+  return calcArr[0] * calcArr[2];
+}
+
+const divCalc = function() {
+  return calcArr[0] / calcArr[2];
 }
 
 const equalsPress = function() {
