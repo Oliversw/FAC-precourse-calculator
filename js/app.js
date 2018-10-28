@@ -1,7 +1,6 @@
 //TODO: find alternative to using global variables
-let totalCalc = [];
-let lastNum = "";
-let lastOperator = "";
+let total = 0;
+let calcArr = [];
 
 //listens for button clicks
 document.querySelector('.calculator-btns').addEventListener('click', function(event) {
@@ -15,24 +14,11 @@ document.querySelector('.calculator-btns').addEventListener('click', function(ev
 
   //checks whether clicked button is an operator (+ - * / =)
   if (buttonClasses.contains('operator')) {
-    lastNum = document.querySelector('.calculator-display').innerText;
-    if (buttonClasses.contains('plus')) {
-      console.log("plus");
-      plusOrMinusPress();
-    }
-    if (buttonClasses.contains('min')) {
-      console.log("min");
-    }
-    if (buttonClasses.contains('mult')) {
-      console.log("mult");
-    }
-    if (buttonClasses.contains('div')) {
-      console.log("div");
-    }
+    operatorPress();
+  }
     if (buttonClasses.contains('equals')) {
       console.log("equals");
     }
-  }
 
   //checks whether clicked button is a cancel button
   if (buttonClasses.contains('clear-buttons')) {
@@ -52,7 +38,7 @@ const numberPress = function() {
   const display = document.querySelector('.calculator-display');
   let buttonClicked = event.target.innerText;
   //checks that display is 0, or that an operator has been pressed, before overriding inner text
-  if ( lastOperator.length > 0 || display.innerText === "0") {
+  if (display.innerText === "0") {
     display.innerText = buttonClicked;
   //otherwise adds clicked number to display
   } else {
@@ -61,7 +47,23 @@ const numberPress = function() {
 }
 
 const operatorPress = function() {
-
+  calcArr.push(parseFloat(document.querySelector('.calculator-display').innerText));
+  if (calcArr.length === 3) {
+    switch (true) {
+      case calcArr[1] === "+":
+        console.log("switch add, baby");
+        break;
+      case calcArr[1] === "-":
+        console.log("switch min, baby");
+        break;
+      case calcArr[1] === "*":
+        console.log("switch *, baby");
+        break;
+      case calcArr[1] === "/":
+        console.log("switch %, baby");
+        break;
+    }
+  }
 }
 
 const plusOrMinusPress = function() {
@@ -73,7 +75,7 @@ const multOrDivPress = function() {
 }
 
 const equalsPress = function() {
-  
+
 }
 
 
