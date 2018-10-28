@@ -4,24 +4,17 @@ let lastNum = "";
 
 //listens for button clicks
 document.querySelector('.calculator-btns').addEventListener('click', function(event) {
-  const display = document.querySelector('.calculator-display');
-  let buttonClicked = event.target.innerText;
+
   let buttonClasses = event.target.classList;
 
   //checks that clicked button is a number
   if (buttonClasses.contains('numb')) {
-    //checks that display is 0 before overriding inner text
-    if (display.innerText === "0") {
-      display.innerText = buttonClicked;
-    //otherwise adds clicked number to display
-    } else {
-      display.innerText += buttonClicked;
-    }
+    numberPress();
   }
 
   //checks whether clicked button is an operator (+ - * / =)
   if (buttonClasses.contains('operator')) {
-    lastNum = display.innerText;
+    lastNum = document.querySelector('.calculator-display').innerText;
     if (buttonClasses.contains('plus')) {
       console.log("plus");
     }
@@ -52,6 +45,18 @@ document.querySelector('.calculator-btns').addEventListener('click', function(ev
     }
   }
 });
+
+const numberPress = function() {
+  const display = document.querySelector('.calculator-display');
+  let buttonClicked = event.target.innerText;
+  //checks that display is 0 before overriding inner text
+  if (display.innerText === "0") {
+    display.innerText = buttonClicked;
+  //otherwise adds clicked number to display
+  } else {
+    display.innerText += buttonClicked;
+  }
+}
 
 //clears everything
 const clearAll = function() {
