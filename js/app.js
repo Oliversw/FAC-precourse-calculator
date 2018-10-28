@@ -1,6 +1,7 @@
 //TODO: find alternative to using global variables
 let total = 0;
 let calcArr = [];
+let operatorClicked = false;
 
 //listens for button clicks
 document.querySelector('.calculator-btns').addEventListener('click', function(event) {
@@ -39,8 +40,9 @@ const numberPress = function() {
   const display = document.querySelector('.calculator-display');
   let buttonClicked = event.target.innerText;
   //checks that display is 0, or that an operator has been pressed, before overriding inner text
-  if (display.innerText === "0" || calcArr.length > 0) {
+  if (display.innerText === "0" || operatorClicked === true) {
     display.innerText = buttonClicked;
+    operatorClicked = false;
   //otherwise adds clicked number to display
   } else {
     display.innerText += buttonClicked;
@@ -73,6 +75,7 @@ const operatorPress = function(thisButton) {
     console.log(calcArr + "#3")
   }
   console.log(calcArr + "#4");
+  operatorClicked = true;
 }
 
 const addCalc = function() {
