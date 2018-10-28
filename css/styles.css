@@ -1,6 +1,11 @@
+html {
+  height: 100%;
+}
 body {
   height: 100%;
   width: 100%;
+  background: rgb(224,128,2);
+background: radial-gradient(circle, rgba(224,128,2,0.8) 28%, rgba(87,52,7,1) 100%);
 }
 
 .calculator-body {
@@ -22,6 +27,7 @@ body {
 
 .calculator-display {
   height: 1.5em;
+  font-family: 'Roboto', sans-serif;
   width: 100%;
   font-size: 3.6em;
   text-align: right;
@@ -32,6 +38,7 @@ body {
 
 button {
   font-size: 1.5em;
+  font-family: 'Roboto', sans-serif;
   height: 2em;
   width: 2.4em;
   border: none;
