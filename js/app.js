@@ -52,9 +52,7 @@ const numberPress = function() {
 const operatorPress = function(thisButton) {
   if (calcArr.length < 2) {
     calcArr.push(parseFloat(document.querySelector('.calculator-display').innerText));
-    calcArr.push(thisButton);
-    console.log(calcArr + "#1")
-  } else if (calcArr.length < 3) {
+  } else if (calcArr.length === 2) {
     calcArr.push(parseFloat(document.querySelector('.calculator-display').innerText));
     switch (true) {
       case calcArr[1] === "+":
@@ -63,7 +61,7 @@ const operatorPress = function(thisButton) {
       case calcArr[1] === "-":
         total = minCalc();
         break;
-      case calcArr[1] === "*":
+      case calcArr[1] === "x":
         total = multCalc();
         break;
       case calcArr[1] === "/":
@@ -72,9 +70,8 @@ const operatorPress = function(thisButton) {
     }
     calcArr = [total];
     document.querySelector('.calculator-display').innerText = total.toString();
-    console.log(calcArr + "#3")
   }
-  console.log(calcArr + "#4");
+  calcArr.push(thisButton);
   operatorClicked = true;
 }
 
