@@ -99,8 +99,8 @@ const equalsPress = function() {
 //clears everything
 const clearAll = function() {
   document.querySelector('.calculator-display').innerText = "0";
-  let totalCalc = [];
-  let lastNum = "";
+  let total = 0;
+  let calcArr = [];
 }
 
 //clears the current display
