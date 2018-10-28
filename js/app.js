@@ -1,6 +1,7 @@
 //TODO: find alternative to using global variables
 let totalCalc = [];
 let lastNum = "";
+let lastOperator = "";
 
 //listens for button clicks
 document.querySelector('.calculator-btns').addEventListener('click', function(event) {
@@ -17,6 +18,7 @@ document.querySelector('.calculator-btns').addEventListener('click', function(ev
     lastNum = document.querySelector('.calculator-display').innerText;
     if (buttonClasses.contains('plus')) {
       console.log("plus");
+      plusOrMinusPress();
     }
     if (buttonClasses.contains('min')) {
       console.log("min");
@@ -49,14 +51,31 @@ document.querySelector('.calculator-btns').addEventListener('click', function(ev
 const numberPress = function() {
   const display = document.querySelector('.calculator-display');
   let buttonClicked = event.target.innerText;
-  //checks that display is 0 before overriding inner text
-  if (display.innerText === "0") {
+  //checks that display is 0, or that an operator has been pressed, before overriding inner text
+  if ( lastOperator.length > 0 || display.innerText === "0") {
     display.innerText = buttonClicked;
   //otherwise adds clicked number to display
   } else {
     display.innerText += buttonClicked;
   }
 }
+
+const operatorPress = function() {
+
+}
+
+const plusOrMinusPress = function() {
+
+}
+
+const multOrDivPress = function() {
+
+}
+
+const equalsPress = function() {
+  
+}
+
 
 //clears everything
 const clearAll = function() {
