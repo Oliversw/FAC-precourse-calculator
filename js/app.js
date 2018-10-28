@@ -39,7 +39,7 @@ const numberPress = function() {
   const display = document.querySelector('.calculator-display');
   let buttonClicked = event.target.innerText;
   //checks that display is 0, or that an operator has been pressed, before overriding inner text
-  if (display.innerText === "0") {
+  if (display.innerText === "0" || calcArr.length > 0) {
     display.innerText = buttonClicked;
   //otherwise adds clicked number to display
   } else {
@@ -48,7 +48,12 @@ const numberPress = function() {
 }
 
 const operatorPress = function(thisButton) {
-  if (calcArr.length === 3) {
+  if (calcArr.length < 2) {
+    calcArr.push(parseFloat(document.querySelector('.calculator-display').innerText));
+    calcArr.push(thisButton);
+    console.log(calcArr + "#1")
+  } else if (calcArr.length < 3) {
+    calcArr.push(parseFloat(document.querySelector('.calculator-display').innerText));
     switch (true) {
       case calcArr[1] === "+":
         total = addCalc();
@@ -65,10 +70,9 @@ const operatorPress = function(thisButton) {
     }
     calcArr = [total];
     document.querySelector('.calculator-display').innerText = total.toString();
+    console.log(calcArr + "#3")
   }
-  calcArr.push(parseFloat(document.querySelector('.calculator-display').innerText));
-  calcArr.push(thisButton);
-  console.log(calcArr);
+  console.log(calcArr + "#4");
 }
 
 const addCalc = function() {
