@@ -5,7 +5,6 @@ let operatorClicked = false;
 
 //listens for button clicks
 document.querySelector('.calculator-btns').addEventListener('click', function(event) {
-
   let buttonClasses = event.target.classList;
 
   //checks that clicked button is a number
@@ -18,9 +17,6 @@ document.querySelector('.calculator-btns').addEventListener('click', function(ev
     let thisButton = event.target.innerText;
     operatorPress(thisButton);
   }
-    if (buttonClasses.contains('equals')) {
-      console.log("equals");
-    }
 
   //checks whether clicked button is a cancel button
   if (buttonClasses.contains('clear-buttons')) {
@@ -49,11 +45,13 @@ const numberPress = function() {
   }
 }
 
+//function for operators - calculates as the user types
 const operatorPress = function(thisButton) {
   if (calcArr.length < 2) {
     calcArr.push(parseFloat(document.querySelector('.calculator-display').innerText));
   } else if (calcArr.length === 2) {
     calcArr.push(parseFloat(document.querySelector('.calculator-display').innerText));
+    //performs calculation
     switch (true) {
       case calcArr[1] === "+":
         total = addCalc();
@@ -68,6 +66,7 @@ const operatorPress = function(thisButton) {
         total = divCalc();
         break;
     }
+    //resets calculation array to contain only the current total
     calcArr = [total];
     document.querySelector('.calculator-display').innerText = total.toString();
   }
@@ -101,6 +100,7 @@ const clearAll = function() {
   document.querySelector('.calculator-display').innerText = "0";
   let total = 0;
   let calcArr = [];
+  let operatorClicked = false;
 }
 
 //clears the current display
