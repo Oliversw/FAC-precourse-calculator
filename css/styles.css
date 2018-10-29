@@ -34,6 +34,8 @@ background: radial-gradient(circle, rgba(224,128,2,0.8) 28%, rgba(87,52,7,1) 100
   background-color: rgb(48, 59, 46);
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+  max-width: 230px;
+  overflow: scroll;
 }
 
 button {
